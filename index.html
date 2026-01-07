@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>T. Kayra Dönmez | Portfolio</title>
+    <title>Alexander Vane | Portfolio</title>
     
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@100;300;400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet" />
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -19,12 +21,18 @@
               surface: '#121212',
               text: '#e5e5e5',
               subtext: '#a3a3a3',
-              accent: '#d4af37', /* Altın rengi */
+              accent: '#d4af37',
             },
             fontFamily: {
               serif: ['"Cormorant Garamond"', 'serif'],
               sans: ['"Montserrat"', 'sans-serif'],
               mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            backgroundImage: {
+              'grid-pattern': "linear-gradient(to right, #ffffff05 1px, transparent 1px), linear-gradient(to bottom, #ffffff05 1px, transparent 1px)",
+            },
+            backgroundSize: {
+              'grid-pattern': '40px 40px',
             },
           }
         }
@@ -35,98 +43,48 @@
         background-color: #0a0a0a;
         color: #e5e5e5;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      /* Hide scrollbar for clean look but allow scrolling */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1a1a1a; 
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #333; 
       }
       
-      /* Animasyon Sınıfları */
-      .reveal {
+      .blur-reveal {
         opacity: 0;
-        transform: translateY(30px);
-        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        filter: blur(4px);
+        filter: blur(10px);
+        transform: translateY(20px);
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                    filter 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
       }
       
-      .reveal.active {
+      .blur-reveal.visible {
         opacity: 1;
-        transform: translateY(0);
         filter: blur(0);
-      }
-
-      /* Hover Efektleri */
-      .link-hover {
-        position: relative;
-        text-decoration: none;
-      }
-      .link-hover::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 1px;
-        bottom: -2px;
-        left: 0;
-        background-color: #d4af37;
-        transition: width 0.3s ease;
-      }
-      .link-hover:hover::after {
-        width: 100%;
+        transform: translateY(0);
       }
     </style>
-  </head>
-  <body class="min-h-screen flex flex-col items-center justify-center p-6 selection:bg-accent selection:text-black">
-
-    <main class="max-w-2xl w-full space-y-12 text-center md:text-left">
-      
-      <header class="space-y-4 reveal">
-        <h1 class="font-serif text-5xl md:text-7xl font-light tracking-tight text-white">
-          T. Kayra Dönmez
-        </h1>
-        <p class="font-sans text-subtext text-lg font-light tracking-wide">
-          Industrial Engineering Student & <span class="text-accent italic font-serif">Quant Enthusiast</span>
-        </p>
-      </header>
-
-      <div class="h-px w-24 bg-gradient-to-r from-accent/50 to-transparent mx-auto md:mx-0 reveal" style="transition-delay: 100ms;"></div>
-
-      <section class="reveal space-y-6" style="transition-delay: 200ms;">
-        <p class="font-sans font-light leading-relaxed text-subtext">
-          Veri bilimi, makine öğrenmesi ve finansal modelleme üzerine çalışan bir mühendislik öğrencisiyim. 
-          Teknoloji ve stratejiyi birleştirerek karmaşık problemlere zarif çözümler üretiyorum.
-        </p>
-      </section>
-
-      <section class="reveal grid grid-cols-1 md:grid-cols-2 gap-8 pt-4" style="transition-delay: 300ms;">
-        <div>
-          <h3 class="font-serif text-2xl text-white mb-3 italic">Focus</h3>
-          <ul class="font-mono text-sm text-subtext space-y-2">
-            <li>> Quantitative Finance</li>
-            <li>> Data Analysis</li>
-            <li>> Computer Vision</li>
-            <li>> Operations Research</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-serif text-2xl text-white mb-3 italic">Connect</h3>
-          <div class="flex flex-col space-y-2 font-sans text-sm">
-            <a href="mailto:email@adresin.com" class="text-subtext hover:text-white transition-colors link-hover w-max">Email</a>
-            <a href="https://linkedin.com/in/kullaniciadin" target="_blank" class="text-subtext hover:text-white transition-colors link-hover w-max">LinkedIn</a>
-            <a href="https://github.com/kullaniciadin" target="_blank" class="text-subtext hover:text-white transition-colors link-hover w-max">GitHub</a>
-            <a href="https://x.com/kullaniciadin" target="_blank" class="text-subtext hover:text-white transition-colors link-hover w-max">X / Twitter</a>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const reveals = document.querySelectorAll('.reveal');
-        
-        // Elemanları sırayla görünür yap
-        reveals.forEach((element, index) => {
-          setTimeout(() => {
-            element.classList.add('active');
-          }, index * 150); // Her eleman 150ms gecikmeli gelir
-        });
-      });
-    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
   </body>
 </html>
